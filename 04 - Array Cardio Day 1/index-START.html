@@ -37,29 +37,66 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    for(let i = 0; i < inventors.length; i++){
+      if(inventors[i].year >1499 && inventors[i].year < 1600){
+        console.log(inventors[i]);
+      }
+    }
+    const fifteenCentury = inventors.filter(inventors => inventors.year > 1499 && inventors.year < 1600);
+    console.log(fifteenCentury);
+    console.log(fifteenCentury[0]);
 
-    // Array.prototype.map()
+    // Ar
+    // ray.prototype.map()
     // 2. Give us an array of the inventors first and last names
-
+    const firstAndLastName = inventors.map(inventors => inventors.first + " " + inventors.last);
+    console.log(firstAndLastName);
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-
+    inventors.sort(function (a, b){
+      return b.year - a.year;
+    });
+    console.log(inventors);
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-
+  // const total = 0;
+  const ageTogether = inventors.reduce((total, inventor) => {
+    return total + (inventor.passed - inventor.year);
+    }, 0);
+    console.log(ageTogether);
     // 5. Sort the inventors by years lived
-
+inventors.sort(function (a, b){
+  return (a.passed - a.year) - (b.passed - b.year);
+});
+console.table(inventors);
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+    // // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    // const category = document.querySelector(`.mw-category`);
+    // const deBoulevard = category.filter(boulevard => boulevard.)
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-
+inventors.sort(function (a, b){
+     return a.last < b.last ? -1 : 1;
+    });
+    console.table(inventors)
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    // const alpha = people.sort(function(a, b){
+    //   const [last, first] = a.split(`, `);
+    //   console.log(last, first);
+    //
+    // })
+    const trnasportation = data.reduce(function(obj, item){
+      if(!obj[item]){
+        obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+    },{});
+    console.log(trnasportation);
   </script>
 </body>
 </html>
