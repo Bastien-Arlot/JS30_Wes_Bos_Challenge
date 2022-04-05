@@ -19,28 +19,38 @@
 
     // Regular
 
+    console.log('hello');
     // Interpolated
+    console.log('hello i am a %s string', 'this to interpolate');// it's the same than `${}`
 
     // Styled
-
+    console.log('%c i am some great text', 'font-sizeL50px'); // To put some style on the log
     // warning!
-
+    console.warn('oh no');
     // Error :|
-
+    console.error('SHi!');
     // Info
-
+console.info('crocodiles eat 3 people per year');
     // Testing
+    console.assert(1 === 1); //If true nothing happen if false you got an error
 
     // clearing
-
+console.clear();
     // Viewing DOM Elements
-
+    console.log(p); // if a dom element is called p obviously
+    console.dir(p); // will show you the info in a dropdown
     // Grouping together
-
+console.group or console.groupCollapsed;
     // counting
-
+console.count('oh');
     // timing
-
+console.time('fetching data');
+fetch('https.//api.github.com/users/bastien-arlot')
+    .then(data => data.json())
+    .then(data => {
+      console.timeEnd('fetching data');
+      console.log(data);
+    });
   </script>
 </body>
 </html>
